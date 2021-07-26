@@ -1,0 +1,62 @@
+set showcmd
+set relativenumber
+set nu
+set ruler
+set softtabstop=4
+set history=100
+set noerrorbells
+set vb t_vb=
+set nowrap
+set noswapfile
+set nobackup
+set undodir=~/vim/undodir
+set undofile
+set textwidth=80
+
+" Searching
+set incsearch
+set hlsearch
+set ignorecase
+
+" Scrolling
+set scrolloff=8
+set colorcolumn=81
+
+" Make font looks better. Otherwise it is very ugly!
+set guifont=Consolas:h11
+"set lines=40 columns=90
+
+set shell=powershell
+set backspace=indent,eol,start
+set autoindent
+
+" Easy access into vimrc. \ev will open it in split screen, \sv will resource. 
+nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+nnoremap <leader>sv :source $MYVIMRC<cr>
+
+" this mapping makes switching between windows easier.
+nnoremap <C-H> <C-W>h
+nnoremap <C-J> <C-W>j
+nnoremap <C-K> <C-W>k
+nnoremap <C-L> <C-W>l
+
+" yank and paste will work across vim windows. y in vim, then ctrl-v in
+" windows.
+set clipboard=unnamed
+" Turn on syntax highlighting and filetype plugins and indentations.
+syn on
+filetype plugin indent on
+
+if has('gui_running')
+    autocmd vimenter * ++nested colorscheme gruvbox
+    set background=dark
+
+    let g:gruvbox_contrast_dark='dark'
+    let g:gruvbox_bold='1'
+    colorscheme gruvbox
+
+    " Turn off the annoying mix-ident error section on vim-airline.
+    let g:airline#extensions#whitespace#enabled = 0
+endif
+
+
