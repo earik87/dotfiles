@@ -24,12 +24,20 @@ set colorcolumn=81
 
 " Make font looks better. Otherwise it is very ugly!
 set guifont=Consolas:h11
-"set lines=40 columns=90
 
 set shell=powershell
 set backspace=indent,eol,start
 set autoindent
 
+" yank and paste will work across vim windows. y in vim, then ctrl-v in
+" windows.
+set clipboard=unnamed
+
+" Turn on syntax highlighting and filetype plugins and indentations.
+syn on
+filetype plugin indent on
+
+" mappings
 " Easy access into vimrc. \ev will open it in split screen, \sv will resource. 
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
@@ -40,13 +48,7 @@ nnoremap <C-J> <C-W>j
 nnoremap <C-K> <C-W>k
 nnoremap <C-L> <C-W>l
 
-" yank and paste will work across vim windows. y in vim, then ctrl-v in
-" windows.
-set clipboard=unnamed
-" Turn on syntax highlighting and filetype plugins and indentations.
-syn on
-filetype plugin indent on
-
+" PLugin settings.
 if has('gui_running')
     autocmd vimenter * ++nested colorscheme gruvbox
     set background=dark
